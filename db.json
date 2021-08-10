@@ -1,0 +1,12 @@
+{
+  "user": {
+    "firstName": "Amay",
+    "lastName": "Chugh",
+    "userEmail": "amaychugh20@gmail.com",
+    "userPassword": "123456",
+    "confPassword": "123456",
+    "userMobile": "08080261061",
+    "dateOfBirth": "2021-08-02",
+    "type": "perm"
+  }
+}

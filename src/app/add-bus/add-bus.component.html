@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section class="vh-100" style="background-color: #eee;">
+    <div class="h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row">
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
+                  <form class="mx-1 mx-md-4" [formGroup]="addBusForm" (ngSubmit)="onSubmit()">      
+                      <div class="mb-4">
+                      <div class="row">
+                        <div class="col">
+                          <label for="busId">Enter Bus Id</label>
+                          <input formControlName="busId" placeholder="Enter Email-Id" name="busId" class="form-control" id="busId" [ngClass]="{ 'is-invalid': submitted && addBusForm.controls.busId.errors }">
+                          <div *ngIf="submitted && addBusForm.controls.busId.errors" class="invalid-feedback">
+                            <div *ngIf="addBusForm.controls.busId.errors.required">
+                              Bus Plate is required
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <label for="busPlate">Enter Bus Plate Number</label>
+                          <input formControlName="busPlate" placeholder="Enter Email-Id" name="busPlate" class="form-control" id="busPlate" [ngClass]="{ 'is-invalid': submitted && addBusForm.controls.busPlate.errors }">
+                          <div *ngIf="submitted && addBusForm.controls.busPlate.errors" class="invalid-feedback">
+                            <div *ngIf="addBusForm.controls.busPlate.errors.required">
+                              Bus Plate is required
+                            </div>    
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="row">
+                        <div class="col">
+                          <div>
+                            <label for="seatType">Seat Type:</label><br>
+                            <span>
+                            <input id="sit" type="radio" value="Y" name="seatType" formControlName="seatType">
+                            <label for="sit">Chair Car</label>
+                            </span>
+                            <span>
+                            <input id="sleep" type="radio" value="N" name="seatType" formControlName="seatType">
+                            <label for="sleep">Sleeper</label>
+                            </span>
+                          </div>
+                          <div *ngIf="submitted && addBusForm.controls.seatType.errors" class="invalid-feedback">
+                            <div *ngIf="addBusForm.controls.seatType.errors.required">
+                              Email is required
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div>
+                            <label for="aC">AC:</label> <br>     
+                            <input id="AC" type="radio" value="Y" name="aC" formControlName="aC">
+                            <label for="AC">AC</label>
+                            <input id="NonAC" type="radio" value="N" name="aC" formControlName="aC">
+                            <label for="NonAC">Non Ac </label>
+                          </div>
+                          <div *ngIf="submitted && addBusForm.controls.aC.errors" class="invalid-feedback">
+                            <div *ngIf="addBusForm.controls.aC.errors.required">
+                              Email is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="row">
+                        <div class="col">
+                          <label for="sourceLocation">Source Location:</label> <br>
+                            <select id="sourceLocation" formControlName="sourceLocation">
+                              <option [defaultSelected]=true [value]="defaultSource" >{{defaultSource}}</option>
+                              <option *ngFor="let loc of sourceLocation" [ngValue]="">{{ loc }}</option>
+                            </select>
+                            <div *ngIf="submitted && addBusForm.controls.sourceLocation.errors" class="invalid-feedback">
+                              <div *ngIf="addBusForm.controls.sourceLocation.errors.required">Email is required</div>
+                              <div *ngIf="addBusForm.controls.sourceLocation.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                          <label for="destinationLocation">Destination Location:</label> <br>
+                            <select id="destinationLocation" formControlName="destinationLocation" >
+                              <option [defaultSelected]=true [value]="defaultDest" >{{defaultDest}}</option>
+                              <option *ngFor="let loc of sourceLocation" [ngValue]="">{{ loc }}</option>
+                            </select>
+                            <div *ngIf="submitted && addBusForm.controls.destinationLocation.errors" class="invalid-feedback">
+                              <div *ngIf="addBusForm.controls.destinationLocation.errors.required">Email is required</div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="row">
+                        <div class="col">
+                          <label for="startTime">Start Date and Time</label>
+                              <input type="datetime-local" formControlName="startTime" placeholder="Enter Email-Id" name="startTime" class="form-control" id="startTime" [ngClass]="{ 'is-invalid': submitted && addBusForm.controls.startTime.errors }">
+                              <div *ngIf="submitted && addBusForm.controls.startTime.errors" class="invalid-feedback">
+                                <div *ngIf="addBusForm.controls.startTime.errors.required">
+                                  Email is required
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                          <label for="duration">Duration</label>
+                              <input type="datetime-local" formControlName="duration" placeholder="Enter Email-Id" name="duration" class="form-control" id="duration" [ngClass]="{ 'is-invalid': submitted && addBusForm.controls.duration.errors }">
+                              <div *ngIf="submitted && addBusForm.controls.duration.errors" class="invalid-feedback">
+                                <div *ngIf="addBusForm.controls.duration.errors.required">
+                                  Email is required
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="row">
+                        <div class="col">
+                          <label for="seatFactorFare">Seat Factor Fare</label>
+                          <input formControlName="seatFactorFare" placeholder="Enter Email-Id" name="seatFactorFare" class="form-control" id="seatFactorFare" [ngClass]="{ 'is-invalid': submitted && addBusForm.controls.seatFactorFare.errors }">
+                          <div *ngIf="submitted && addBusForm.controls.seatFactorFare.errors" class="invalid-feedback">
+                            <div *ngIf="addBusForm.controls.seatFactorFare.errors.required">
+                              Email is required
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                          <label for="acFactorFare">AC Factor Fare</label>
+                          <input formControlName="acFactorFare" placeholder="Enter Email-Id" name="acFactorFare" class="form-control" id="acFactorFare" [ngClass]="{ 'is-invalid': submitted && addBusForm.controls.acFactorFare.errors }">
+                          <div *ngIf="submitted && addBusForm.controls.acFactorFare.errors" class="invalid-feedback">
+                            <div *ngIf="addBusForm.controls.acFactorFare.errors.required">Email is required</div>
+                            <div *ngIf="addBusForm.controls.acFactorFare.errors.email">Email must be a valid email address</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div id="container">
+                      <input type="text" id="member" name="member" value="">Number of Halts: (max. 6)<br />
+                      <input type="button" name="addFields" id="" onclick="addFields()> -->
+                      <div class="mb-4">
+                        <label for="noOfHalts">No of Halts:</label><br>
+                        <select id="noOfHalts" formControlName="noOfHalts" >
+                          <option [defaultSelected]=true [value]="defaultHalt" >{{defaultHalt}}</option>
+                          <option *ngFor="let halt of noOfHalts" [ngValue]="">{{ halt }}</option>
+                        </select>
+                        <div *ngIf="submitted && addBusForm.controls.destinationLocation.errors" class="invalid-feedback">
+                          <div *ngIf="addBusForm.controls.destinationLocation.errors.required">Email is required</div>
+                        </div>
+                      </div>
+                      <div formArrayName="halts" class="form-control">
+                        
+                        <label> Add More Halts:</label>
+                        <button type="button" (click)="addHalt()" class="btn btn-primary">Add More</button>
+                        <div *ngFor="let halt2 of Halts().controls; let i=index" [formGroupName]="i" class="row">  
+                          <label for="halt2">Halt</label>
+                          <!-- <input type="text" formControlName="halt" class="form-control"> -->
+                          <div class="col">
+                          <input type="number" formControlName="haltno" name="haltno" class="form-control" id="haltno" [ngClass]="{ 'is-invalid': submitted && addBusForm.controls.haltno.errors }">
+                          <select id="halt2" formControlName="halt2" class="form-control">
+                            <option [defaultSelected]=true [value]="defaultHaltLocation" >{{defaultHaltLocation}}</option>
+                            <option *ngFor="let loc of Halt" [ngValue]="">{{ loc }}</option>
+                          </select>
+                          </div>
+                          <div *ngIf="submitted && addBusForm.controls.destinationLocation.errors" class="invalid-feedback">
+                            <div *ngIf="addBusForm.controls.destinationLocation.errors.required">Email is required</div>
+                          </div>
+                        <div class="col">
+                          <button (click)="removeHalt(i)" class="btn btn-danger">Remove</button>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 form-group">
+                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                      </div>           
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  </section> 
+</body>
+</html>
