@@ -15,6 +15,7 @@ export class UserService {
   ownerUrl = 'http://localhost:3000/register/owner'
   allownersUrl = 'http://localhost:3000/getAllOwner'
   busSelected: any;
+  permUserid = localStorage.getItem('id')
   constructor(private http: HttpClient) { 
     // this.selectedBus$ =this.selectedBusSubject.asObservable();
   }
@@ -56,9 +57,13 @@ export class UserService {
   checkSeats(){
     return this.http.get<any>(`${this.adminUrl}/checkSeats/${this.busSelected.busId}`);
   }
+  confirmSeat(buses: any){
+    return this.http.post(`${this.adminUrl}/bookSeat/${this.busSelected.busId}`,buses);
+  }
   updateUser(res: any){
       return this.http.put<any>(`${this.baseUrl}/update`, res);
   }
-
-
+  tempregister(res: any){
+    return this.http.post<any>(`${this.baseUrl}/addTempUser`,res)
+  }
 }

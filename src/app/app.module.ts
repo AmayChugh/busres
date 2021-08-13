@@ -16,6 +16,8 @@ import { FooterComponent } from './footer/footer.component';
 import { BookBusComponent } from './book-bus/book-bus.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { SelectSeatComponent } from './select-seat/select-seat.component';
+import { TempUserComponent } from './temp-user/temp-user.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 
 
@@ -33,6 +35,8 @@ import { SelectSeatComponent } from './select-seat/select-seat.component';
     BookBusComponent,
     UpdateUserComponent,
     SelectSeatComponent,
+    TempUserComponent,
+    TicketComponent,
 
   ],
   imports: [

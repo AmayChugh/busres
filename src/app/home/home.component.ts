@@ -15,6 +15,7 @@ submitted: boolean = false;
   constructor(private router: Router, private userService: UserService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    console.log(this.userService.isUserLoggedIn)
     this.id = +(localStorage.getItem('id') || 0); 
     console.log(this.id)
     console.log(typeof this.id)
@@ -31,10 +32,15 @@ submitted: boolean = false;
     if(this.searchForm.invalid){
       return
     }
+    localStorage.setItem('userSource',this.searchForm.value.sourceLocation)
+    localStorage.setItem('userDestination',this.searchForm.value.destinationLocation)
+
     this.userService.searchBus(this.searchForm.value).subscribe(res=>{
       if(res === true){
+        console.log(res)
         window.confirm("Searching...........")
         this.router.navigateByUrl('/bookBus');
+        // localStorage.setItem('userSource',res.sourceLocation)
 
       }else {
         window.confirm('ENTER All FIELDS');

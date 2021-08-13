@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SelectSeatComponent } from './select-seat/select-seat.component';
 import { ShowAllBusComponent } from './show-all-bus/show-all-bus.component';
+import { TempUserComponent } from './temp-user/temp-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'showAllBuses', component: ShowAllBusComponent},
   {path: 'updateUser', component: UpdateUserComponent},
   {path: 'selectSeat', component: SelectSeatComponent},
+  {path: 'userDetails', component: TempUserComponent}
   //{path: '**', component: HomeComponent}
 ];
 
