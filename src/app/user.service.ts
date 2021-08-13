@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from './user';
 import { Bus } from './bus';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,13 @@ export class UserService {
   isUserLoggedIn = false;
   isAdminLoggedIn = false;
   baseUrl = 'http://localhost:8090/busres/user'
-  adminUrl = 'http://localhost:3000/login'
+  adminUrl = 'http://localhost:8090/busres/admin'
   ownerUrl = 'http://localhost:3000/register/owner'
   allownersUrl = 'http://localhost:3000/getAllOwner'
-  constructor(private http: HttpClient) { }
+  busSelected: any;
+  constructor(private http: HttpClient) { 
+    // this.selectedBus$ =this.selectedBusSubject.asObservable();
+  }
 
   isUserLogin(){
     if(this.isUserLoggedIn){
@@ -36,20 +40,25 @@ export class UserService {
   }
   addBus(res: Bus) {
     alert(console.log(res))
-    return this.http.post(`${this.baseUrl}/addBus`, res);
+    return this.http.post(`${this.adminUrl}/addBus`, res);
   }
-  showAllBus() {
-    return this.http.get<any>(`${this.ownerUrl}/getAllBus`);
+  searchBus(res :any){
+    alert(console.log(res))
+    return this.http.post(`${this.adminUrl}/searchBus`, res) 
   }
-  setAvaliability(res: any) {
-    console.log(res);
-    return this.http.post(`${this.ownerUrl}/setAvaliability`, res);
+  selectBus(bus: any){
+    alert("Service Called")
+    this.busSelected = bus
   }
-  getAllOwner() {
-    return this.http.get<any>(this.allownersUrl);
+  showBus(){
+    return this.http.get<any>(`${this.adminUrl}/showBus`);
   }
-  removeOwner(res:any) {
-    return this.http.delete(this.ownerUrl,res);
+  checkSeats(){
+    return this.http.get<any>(`${this.adminUrl}/checkSeats/${this.busSelected.busId}`);
   }
+  updateUser(res: any){
+      return this.http.put<any>(`${this.baseUrl}/update`, res);
+  }
+
 
 }

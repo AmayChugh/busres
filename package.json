@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~12.1.2",
     "@angular/platform-browser-dynamic": "~12.1.2",
     "@angular/router": "~12.1.2",
+    "@syncfusion/ej2-angular-maps": "^18.3.42",
     "angular-bootstrap-md": "^4.3.2",
     "bootstrap": "^5.0.2",
     "jquery": "^3.6.0",

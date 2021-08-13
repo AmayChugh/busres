@@ -1,0 +1,35 @@
+<div class="container">
+<!-- <h2> User Details</h2>     -->
+<table class="table table-striped table-responsive table-hover">
+    <thead>
+      <tr>
+        <!-- <th class="invisible">Bus Id</th> -->
+        <th>Bus Plate</th>
+        <th>Seat Type</th>
+        <th>Bus Type</th>
+        <th>Source Location</th>
+        <th>Destination Location</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>No of Halts</th>
+        <th>Ticket Price</th> 
+      </tr>
+    </thead>    
+    <tbody>
+      <tr *ngFor="let bus of buses">
+        <!-- <td class="invisible">{{ bus.busId}}</td> -->
+        <td>{{ bus.busPlate }}</td>
+        <td>{{ bus.seatType === 'Y' ? 'Sleeper' : 'Chair Car' }}</td>
+        <td>{{ bus.aC === 'Y' ? 'AC' : 'Non AC' }}</td>
+        <td>{{ bus.sourceLocation }}</td>
+        <td>{{ bus.destinationLocation }}</td>
+        <td>{{ bus.startTime | date: "short" }}</td>
+        <td>{{ bus.duration | date: "short" }}</td>
+        <td>{{ bus.noOfHalts }}</td>
+        <td>{{ bus.price | currency: "INR" }}</td>
+        <button class="btn btn-primary" (click)="bookBus(bus)" style="margin-left: 20px; background-color: #008cba; hover {background-color: #e7e7e7;}">Book</button>
+      </tr>   
+    </tbody>  
+  </table>
+</div>
+

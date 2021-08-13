@@ -1,10 +1,8 @@
-
-
   <div class="row">
     <div [style.background-image]="'url(../assets/images/home.jpeg)'" style="background-repeat: no-repeat;background-size: 100%">
     <div class="col-sm-5 text-center abc" style="background-color:rgba(192,192,192,0);">
         <!-- Default form login -->
-        <form action="#!">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit">
            <div class="d-flex justify-content-left">
                 <div>
                   <div class="row"> 
@@ -42,7 +40,7 @@
                                     </div>
                               </div>
                               <div class="col">
-                                <label for="endTime">To</label>
+                                <label for="duration">To</label>
                                     <input style= "margin-left: 130px;margin-top: 20px;" type="datetime-local" formControlName="duration" name="duration" class="form-control" id="duration" [ngClass]="{ 'is-invalid': submitted && searchForm.controls.duration.errors}">
                                     <div *ngIf="submitted && searchForm.controls.duration.errors" class="invalid-feedback">
                                       <div *ngIf="searchForm.controls.duration.errors.required">
@@ -53,7 +51,7 @@
                             </div> 
                           </div>
                           <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 form-group">
-                            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                            <button type="submit" class="btn btn-primary btn-lg" (click)="onSubmit()">Search</button>
                           </div>  
                     </div>
                     </div>

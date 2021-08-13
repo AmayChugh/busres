@@ -9,16 +9,15 @@ import { UserService } from '../user.service';
 export class ShowAllBusComponent implements OnInit {
   buses: any[] = [];
   constructor(private userService: UserService) {
-    this.getBuses();
+    // this.getBuses();
    }
 
   ngOnInit(): void {
   }
-  getBuses() {
-    this.userService.showAllBus().subscribe(res => {
-      console.log(res);
-      this.buses = res.busList;
-    });
+  // getBuses() {
+  //   this.userService.showAllBus().subscribe(res => {
+  //     console.log(res);
+  //     this.buses = res.busList;
+  //   });
   }
 
-}

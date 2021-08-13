@@ -67,7 +67,7 @@ export class AddBusComponent implements OnInit {
       if (res != null){
         console.log(res)
         alert('Registration Successfull');
-        this.addBusForm.reset();
+        // this.addBusForm.reset();
         this.router.navigateByUrl('login');
       }
       else{
