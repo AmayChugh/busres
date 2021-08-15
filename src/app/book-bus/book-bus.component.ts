@@ -16,19 +16,17 @@ export class BookBusComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.userService.busSelected = this.buses
+    // this.userService.busSelected = this.buses
     this.id = +(localStorage.getItem('id') || 0);
     this.getBuses()
   }
   getBuses() {
     this.userService.showBus().subscribe(res => {
       console.log(res);
-
       this.buses = res;
     });
   }
   bookBus(bus: any){
-    // 
     this.buses = bus
     this.userService.selectBus(this.buses)
     console.log(bus);

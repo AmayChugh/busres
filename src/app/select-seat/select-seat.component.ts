@@ -32,7 +32,6 @@ export class SelectSeatComponent implements OnInit {
     this.buses.permUserid = this.id
     console.log(this.buses)
     this.availSeats()
-    
   }
   availSeats(){
       this.http.get<any>(`http://localhost:8090/busres/admin/checkSeats/${this.buses.busId}`).subscribe((res: any) => {
@@ -55,7 +54,6 @@ export class SelectSeatComponent implements OnInit {
     });
   }
   onSubmit(val: number){
-    if(this.userService.isUserLoggedIn === true){
       this.buses.seatno = val
       console.log(this.buses)
       this.buses.userSource = localStorage.getItem('userSource')
@@ -64,15 +62,22 @@ export class SelectSeatComponent implements OnInit {
       this.buses.numberOfseats = 1
       console.log(this.buses)
       console.log(val)
-      this.userService.confirmSeat(this.buses).subscribe(res=>{
-      console.log(res)
-      },err=>{
-          alert("login error")
-        });
-      this.router.navigateByUrl('/login')
-    }
-    else{
-      this.router.navigateByUrl('/userDetails')
+      this.userService.confirmSeat(this.buses).subscribe(res =>{
+        console.log("Seat Selected")
+      },err => {
+        alert("selection Error")
+      });
+      if(this.userService.isUserLoggedIn === true){
+        this.userService.addBooking(this.buses).subscribe(res=>{
+          console.log(res)
+          },err=>{
+              alert("login error")
+            });
+        this.userService.selectBus(this.buses)
+        this.router.navigateByUrl('/ticket')
+      }else{
+        this.userService.selectBus(this.buses)
+        this.router.navigateByUrl('/userDetails')
     }
 
     // console.log(val)
@@ -85,6 +90,5 @@ export class SelectSeatComponent implements OnInit {
     // },err=>{
     //   alert("login error")
     // });
-  }
-  
+  }  
 }

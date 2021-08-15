@@ -1,7 +1,6 @@
 
-
 export class Bus{
-    busid: number
+    busid: any
     busPlate: string =''
     seatType: string = ''
     aC: string = ''

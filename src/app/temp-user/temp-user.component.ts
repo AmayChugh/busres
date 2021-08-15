@@ -11,10 +11,12 @@ import { UserService } from '../user.service';
 export class TempUserComponent implements OnInit {
   tempUserForm: FormGroup;
   submitted: boolean = false;
+  buses: any;
 
   constructor(private router: Router, private userService: UserService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.buses = this.userService.busSelected
     this.tempUserForm= this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -29,12 +31,17 @@ export class TempUserComponent implements OnInit {
     if(this.tempUserForm.invalid){
       return
     }
+    console.log(this.tempUserForm.value)
+    this.buses.tempEmail = this.tempUserForm.value.userEmail
+    console.log(this.buses)
     this.userService.tempregister(this.tempUserForm.value).subscribe(res=>{
       if (res != null){
         console.log(res)
         alert('Registration Successfull');
-        this.tempUserForm.reset();
-        this.router.navigateByUrl('login');
+        this.userService.addTempBooking(this.buses).subscribe(res =>{
+          console.log(res)
+        } )
+        this.router.navigateByUrl('ticket');
       }
       else{
         //console.log(res);

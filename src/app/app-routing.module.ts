@@ -9,7 +9,9 @@ import { RegisterComponent } from './register/register.component';
 import { SelectSeatComponent } from './select-seat/select-seat.component';
 import { ShowAllBusComponent } from './show-all-bus/show-all-bus.component';
 import { TempUserComponent } from './temp-user/temp-user.component';
+import { TicketComponent } from './ticket/ticket.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,7 +23,9 @@ const routes: Routes = [
   {path: 'showAllBuses', component: ShowAllBusComponent},
   {path: 'updateUser', component: UpdateUserComponent},
   {path: 'selectSeat', component: SelectSeatComponent},
-  {path: 'userDetails', component: TempUserComponent}
+  {path: 'ticket', component: TicketComponent},
+  {path: 'userDetails', component: TempUserComponent},
+  {path: 'viewTicket', component: ViewTicketComponent}
   //{path: '**', component: HomeComponent}
 ];
 

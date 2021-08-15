@@ -18,6 +18,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { SelectSeatComponent } from './select-seat/select-seat.component';
 import { TempUserComponent } from './temp-user/temp-user.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 
 
 
@@ -37,6 +38,7 @@ import { TicketComponent } from './ticket/ticket.component';
     SelectSeatComponent,
     TempUserComponent,
     TicketComponent,
+    ViewTicketComponent,
 
   ],
   imports: [
