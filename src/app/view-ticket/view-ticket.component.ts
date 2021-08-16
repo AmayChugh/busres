@@ -22,6 +22,7 @@ export class ViewTicketComponent implements OnInit {
       ticketId: ['', Validators.required] 
   });
 }
+
 onSubmit(): void {
   console.log(this.viewTicket.value)
   this.http.get<any>(`http://localhost:8090/busres/user/findTicket/${this.viewTicket.value.ticketId}`).subscribe(res => {

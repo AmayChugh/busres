@@ -11,15 +11,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./select-seat.component.css']
 })
 export class SelectSeatComponent implements OnInit {
+  buses: any;
   id: number;
-  buses: any
+  // buses: any
   clicked = false;
   selectSeatForm: FormGroup;
   val: any
   seatsAvail: any
   seats: any
   index: number
-  seatno: any;
 
 
 
@@ -30,7 +30,7 @@ export class SelectSeatComponent implements OnInit {
     this.id = +(localStorage.getItem('id') || 0); 
     this.buses = this.userService.busSelected
     this.buses.permUserid = this.id
-    console.log(this.buses)
+    console.log(this.buses.permUserid)
     this.availSeats()
   }
   availSeats(){
@@ -53,7 +53,9 @@ export class SelectSeatComponent implements OnInit {
       // this.buses = res;
     });
   }
-  onSubmit(val: number){
+  onSubmit(val: any){
+      // console.log(val)
+      // console.log(this.buses)
       this.buses.seatno = val
       console.log(this.buses)
       this.buses.userSource = localStorage.getItem('userSource')

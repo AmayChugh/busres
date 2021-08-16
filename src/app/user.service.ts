@@ -2,7 +2,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from './user';
 import { Bus } from './bus';
-import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -63,7 +62,7 @@ export class UserService {
   }
   addBooking(buses: any){
     alert("calling")
-    return this.http.post(`${this.adminUrl}/addBooking/${this.busSelected.busId}/${this.permUserid}`,buses);
+    return this.http.post(`${this.adminUrl}/addBooking/${this.busSelected.busId}/${buses.permUserid}`,buses);
   }
   addTempBooking(buses: any){
     alert("i am here")

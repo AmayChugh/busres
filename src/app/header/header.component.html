@@ -1,8 +1,4 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <!-- <a class="navbar-brand" routerLink="/">
-        <img
-            src="https://www.themeenergy.com/themes/wordpress/transfers/wp-content/themes/transfers/images/transfers.jpg">
-    </a> -->
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
         aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -15,9 +11,9 @@
             <li class="nav-item active" *ngIf="isAdminLogin">
                 <a class="nav-link" routerLink="addBus"><b>Add Bus</b> </a>
             </li>
-            <li class="nav-item active" *ngIf="isAdminLogin">
+            <!-- <li class="nav-item active" *ngIf="isAdminLogin">
                 <a class="nav-link" routerLink="updateBus"><b>Update Bus</b> </a>
-            </li>
+            </li> -->
             <li class="nav-item active" *ngIf="isAdminLogin">
                 <a class="nav-link" routerLink="deleteBus"><b>Delete Bus</b> </a>
             </li>
@@ -36,21 +32,21 @@
 
 
             <!-- CUSTOMER PERFORMANCE -->
-            <li class="nav-item active" *ngIf="isUserLogin">
+            <!-- <li class="nav-item active" *ngIf="isUserLogin">
                 <a class="nav-link" routerLink="checkAvaliability"><b>Check Avaliability</b></a>
-            </li>
+            </li> -->
             <!-- <li class="nav-item active" *ngIf="getavalia && isUserLogin">
                 <a class="nav-link" routerLink="bookTicket"><b>Book Ticket</b></a>
             </li> -->
             <li class="nav-item active" *ngIf="isUserLogin">
                 <a class="nav-link" routerLink="ticket"><b>View Ticket</b></a>
             </li>
-            <li class="nav-item active" *ngIf="isUserLogin">
+            <!-- <li class="nav-item active" *ngIf="isUserLogin">
                 <a class="nav-link" routerLink="cancelTicket"><b>Cancel Ticket</b></a>
-            </li>
-            <li class="nav-item active" *ngIf="isUserLogin">
+            </li> -->
+            <!-- <li class="nav-item active" *ngIf="isUserLogin">
                 <a class="nav-link" routerLink="giveFeedback"><b>Feedback</b></a>
-            </li>
+            </li> -->
         </ul>
 
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -60,9 +56,9 @@
             <li class="nav-item active" *ngIf="!isAdminLogin &&  !isUserLogin">
                 <a class="nav-link" routerLink="login"><b>Login</b> </a>
             </li>
-            <li class="nav-item active" *ngIf="isUserLogin">
+            <!-- <li class="nav-item active" *ngIf="isUserLogin">
                 <a class="nav-link" routerLink="updateUser"><b>Profile</b></a>
-            </li>
+            </li> -->
             <li class="nav-item active" *ngIf="isAdminLogin || isUserLogin">
                 <button type="button" class="btn btn-outline-danger" (click)="logout()"><b>Logout</b></button>
             </li>

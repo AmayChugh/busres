@@ -68,7 +68,7 @@ export class AddBusComponent implements OnInit {
         console.log(res)
         alert('Registration Successfull');
         // this.addBusForm.reset();
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('home');
       }
       else{
         //console.log(res);

@@ -74,6 +74,9 @@ export class TicketComponent implements OnInit {
       // console.log(this.buses)
   });
 }
+printPage() {
+  window.print();
+}
   onSubmit(){
     if (this.userService.isUserLoggedIn == true){
     this.buses.permBookingid = this.tickets.ticketId
@@ -96,7 +99,5 @@ export class TicketComponent implements OnInit {
         });  
     this.router.navigateByUrl('/home')
   }
-
 }
-
 }
