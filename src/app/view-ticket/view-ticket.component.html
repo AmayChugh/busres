@@ -9,30 +9,29 @@
         <thead>
           <tr>
             <!-- <th class="invisible">Bus Id</th> -->
+            <th>Ticket ID</th>
+            <th>Date of Journey</th>
             <th>Bus Plate</th>
-            <th>Seat Type</th>
-            <th>Bus Type</th>
             <th>Source Location</th>
             <th>Destination Location</th>
-            <th>Start Time</th>
-            <th>End Time</th>
+            <th>Number of Seats</th>
+            <th>Seat No</th>
             <th>No of Halts</th>
             <th>Ticket Price</th> 
           </tr>
         </thead>    
         <tbody>
-          <tr *ngFor="let bus of ticket">
+          <tr>
             <!-- <td class="invisible">{{ bus.busId}}</td> -->
-            <td>{{ bus.busPlate }}</td>
-            <td>{{ bus.seatType === 'Y' ? 'Sleeper' : 'Chair Car' }}</td>
-            <td>{{ bus.aC === 'Y' ? 'AC' : 'Non AC' }}</td>
-            <td>{{ bus.sourceLocation }}</td>
-            <td>{{ bus.destinationLocation }}</td>
-            <td>{{ bus.startTime | date: "short" }}</td>
-            <td>{{ bus.duration | date: "short" }}</td>
-            <td>{{ bus.noOfHalts }}</td>
-            <td>{{ bus.price | currency: "INR" }}</td>
-            <button class="btn btn-primary" style="margin-left: 20px; background-color: #008cba; hover {background-color: #e7e7e7;}">Cancel</button>
+            <td>{{ ticket.ticketId }}</td>
+            <td>{{ ticket.doj | date: "short" }}</td>
+            <td>{{ ticket.busPlate}}</td>
+            <td>{{ ticket.userSource }}</td>
+            <td>{{ ticket.userDestination }}</td>
+            <td>{{ ticket.numberOfseats }}</td>
+            <td>{{ ticket.seat }}</td>
+            <td>{{ ticket.fare | currency: "INR" }}</td>
+            <!-- <button class="btn btn-primary" style="margin-left: 20px; background-color: #008cba; hover {background-color: #e7e7e7;}">Cancel</button> -->
           </tr>   
         </tbody>  
       </table>

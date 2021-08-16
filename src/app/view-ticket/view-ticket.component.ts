@@ -12,14 +12,14 @@ import { UserService } from '../user.service';
 })
 export class ViewTicketComponent implements OnInit {
   viewTicket: FormGroup
-  ticket: any;
+  ticket: any = [];
   constructor(private router: Router, private userService: UserService, private formBuilder: FormBuilder, private http: HttpClient) {
     
    }
 
   ngOnInit(): void {
     this.viewTicket = this.formBuilder.group({
-      ticketId: ['', Validators.required]
+      ticketId: ['', Validators.required] 
   });
 }
 onSubmit(): void {

@@ -1,24 +1,36 @@
-<div class="col-md-9 offset-md-2 card card-body mt-3">
-    <table class="table table-bordered table-hover table-striped">
-        <thead style="background:darkgrey">
-            <td>bus id</td>
-            <td>Bus Name</td>
-            <td>Bus Source Id</td>
-            <td>Bus Destintion</td>
-            <td>Bus Type</td>
-            <td>Total Seats</td>
-            <td>Ticket Price</td>
-        </thead>
+<div class="container">
+    <!-- <h2> User Details</h2>     -->
+    <table class="table table-striped table-responsive table-hover">
+        <thead>
+          <tr>
+            <!-- <th class="invisible">Bus Id</th> -->
+            <th>Bus Plate</th>
+            <th>Seat Type</th>
+            <th>Bus Type</th>
+            <th>Source Location</th>
+            <th>Destination Location</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>No of Halts</th>
+            <th>Ticket Price</th> 
+          </tr>
+        </thead>    
         <tbody>
-            <tr *ngFor='let bus of buses'>
-                <td>{{bus.busId}}</td>
-                <td>{{bus.busName}}</td>
-                <td>{{bus.startingPoint}}</td>
-                <td>{{bus.endingPoint}}</td>
-                <td>{{bus.busType}}</td>
-                <td>{{bus.totalSeats}}</td>
-                <td>{{bus.cost}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+            <tr *ngFor='let bus of Allbuses'>
+                <!-- <td>{{bus.busId}}</td> -->
+                <td>{{ bus.busPlate }}</td>
+                <td>{{ bus.seatType === 'Y' ? 'Sleeper' : 'Chair Car' }}</td>
+                <td>{{ bus.aC === 'Y' ? 'AC' : 'Non AC' }}</td>
+                <td>{{ bus.sourceLocation }}</td>
+                <td>{{ bus.destinationLocation }}</td>
+                <td>{{ bus.startTime | date: "short" }}</td>
+                <td>{{ bus.duration | date: "short" }}</td>
+                <td>{{ bus.seatFactorFare }}</td>
+                <td>{{ bus.acFactorFare }}</td>
+                <button class="btn btn-primary" (click)="deleteBus(bus)" style="margin-left: 20px; background-color: #008cba; hover {background-color: #e7e7e7;}">Cancel</button>
+          </tr>   
+        </tbody>  
+      </table>
+    </div>
+
+

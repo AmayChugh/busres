@@ -28,7 +28,7 @@ export class BookBusComponent implements OnInit {
   }
   bookBus(bus: any){
     this.buses = bus
-    this.userService.selectBus(this.buses)
+    this.userService.deleteBus(this.buses)
     console.log(bus);
     console.log(this.buses)
     console.log("hello"+this.buses)

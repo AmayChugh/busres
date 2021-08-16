@@ -19,6 +19,7 @@ import { SelectSeatComponent } from './select-seat/select-seat.component';
 import { TempUserComponent } from './temp-user/temp-user.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
+import { FindAllBusComponent } from './find-all-bus/find-all-bus.component';
 
 
 
@@ -39,6 +40,7 @@ import { ViewTicketComponent } from './view-ticket/view-ticket.component';
     TempUserComponent,
     TicketComponent,
     ViewTicketComponent,
+    FindAllBusComponent,
 
   ],
   imports: [

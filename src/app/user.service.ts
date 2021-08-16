@@ -88,4 +88,11 @@ export class UserService {
     alert("mai second")
     return this.http.get<any>(`${this.baseUrl}/confirmDetailsforTemp/${buses.tempEmail}`);
   }
+  showAllBuses(){
+    return this.http.get<any>(`${this.adminUrl}/findAllBus`)
+  }
+  deleteBus(buses: any){
+    return this.http.delete<any>(`${this.adminUrl}/deleteBusbyId/${buses.busId}`)
+  }
 }
+
