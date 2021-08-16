@@ -35,19 +35,19 @@ export class UserService {
   }
 
   register(res: User){
-    alert(console.log(res))
+    // alert(console.log(res))
       return this.http.post<any>(`${this.baseUrl}/add`, res);
   }
   addBus(res: Bus) {
-    alert(console.log(res))
+    // alert(console.log(res))
     return this.http.post(`${this.adminUrl}/addBus`, res);
   }
   searchBus(res :any){
-    alert(console.log(res))
+    // alert(console.log(res))
     return this.http.post(`${this.adminUrl}/searchBus`, res) 
   }
   selectBus(bus: any){
-    alert("Service Called")
+    // alert("Service Called")
     this.busSelected = bus
   }
   showBus(){
@@ -61,11 +61,11 @@ export class UserService {
     return this.http.post<any>(`${this.adminUrl}/bookSeat/${this.busSelected.busId}`,buses);
   }
   addBooking(buses: any){
-    alert("calling")
+    // alert("calling")
     return this.http.post(`${this.adminUrl}/addBooking/${this.busSelected.busId}/${buses.permUserid}`,buses);
   }
   addTempBooking(buses: any){
-    alert("i am here")
+    // alert("i am here")
     return this.http.post(`${this.baseUrl}/addTempBooking/${this.busSelected.busId}`,buses);
   }
   updateUser(res: any){
@@ -84,7 +84,7 @@ export class UserService {
     return this.http.post<any>(`${this.baseUrl}/confirmTempBooking/${this.busSelected.busId}`,buses)
   }
   showTempTicket(buses:any){
-    alert("mai second")
+    // alert("mai second")
     return this.http.get<any>(`${this.baseUrl}/confirmDetailsforTemp/${buses.tempEmail}`);
   }
   showAllBuses(){

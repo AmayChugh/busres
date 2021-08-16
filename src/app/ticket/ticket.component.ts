@@ -20,7 +20,7 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
     this.id = +(localStorage.getItem('id') || 0); 
     this.buses = this.userService.busSelected
-    console.log("Amoi")
+    // console.log("Amoi")
     // this.confirmForm = new FormGroup({
     //   userSource : this.buses.userSource, 
     //   userDestination : this.buses.userDestination, 
@@ -29,7 +29,7 @@ export class TicketComponent implements OnInit {
     //   busPlate : this.buses.busPlate,
     //   seatno : this.buses.seatno
     //   });
-    console.log(this.userService.isUserLoggedIn)
+    // console.log(this.userService.isUserLoggedIn)
     if(this.userService.isUserLoggedIn == true){
       this.getDetails()
     }
@@ -85,18 +85,14 @@ printPage() {
     // console.log(this.confirmForm.value)
     this.userService.bookTicket(this.buses).subscribe(res=>{
       console.log(res)
-      },err=>{
-          alert("login error")
-        });  
+      });  
     this.router.navigateByUrl('/home')
   }else{
     this.buses.tempBookingid = this.tickets.ticketId
     this.buses.dateOfjourney = this.tickets.doj
     this.userService.bookTempTicket(this.buses).subscribe(res=>{
       console.log(res)
-      },err=>{
-          alert("login error")
-        });  
+      });  
     this.router.navigateByUrl('/home')
   }
 }

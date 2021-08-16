@@ -47,7 +47,7 @@ export class SelectSeatComponent implements OnInit {
         else{
           btn.disabled = false
         }
-        console.log(btn)
+        // console.log(btn)
       }
       
       // this.buses = res;
@@ -66,15 +66,11 @@ export class SelectSeatComponent implements OnInit {
       console.log(val)
       this.userService.confirmSeat(this.buses).subscribe(res =>{
         console.log("Seat Selected")
-      },err => {
-        alert("selection Error")
       });
       if(this.userService.isUserLoggedIn === true){
         this.userService.addBooking(this.buses).subscribe(res=>{
           console.log(res)
-          },err=>{
-              alert("login error")
-            });
+          });
         this.userService.selectBus(this.buses)
         this.router.navigateByUrl('/ticket')
       }else{

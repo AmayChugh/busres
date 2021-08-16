@@ -35,19 +35,14 @@ export class LoginComponent implements OnInit {
     if(buttonType==='user') {
       console.log(buttonType)
       this.http.post<any>('http://localhost:8090/busres/user/login', this.loginUserForm.value).subscribe(res => {
-      alert("Hello")
       console.log(res);
-      console.log("mai hoon yaha")
       this.Users = res
       this.Userid = res.value0;
-      console.log(this.Userid);
-      // console.log(this.Users.id)
       if (res.value1 === true) {
         window.confirm('login successfull');
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('id',this.Userid);
         this.userService.isUserLoggedIn = true;
-        console.log(localStorage.getItem('id'));
         this.router.navigateByUrl('/home');
       } else {
         window.confirm('ENTER CORRECT CREDENTAILS');
@@ -60,7 +55,6 @@ export class LoginComponent implements OnInit {
   if(buttonType==='admin'){
       console.log(buttonType)
       this.http.post<any>('http://localhost:8090/busres/admin/login', this.loginUserForm.value).subscribe(res => {
-      alert("Hello")
       console.log(res);
       this.Users = res;
       if (res=== true) {
