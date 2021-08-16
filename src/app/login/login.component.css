@@ -1,0 +1,39 @@
+label{
+    font-weight: 700;
+
+}
+
+.btn {
+    border-radius: 25px;
+    width: 100%;
+    margin-top: 2%;
+    background-color: #040640;
+    color: #fff;
+    
+}
+
+
+.form-control {
+    width: 90%;
+    border-radius: 25px;
+    border: 2px solid #777;
+    
+    
+}
+
+.text-center{
+    font-weight: bolder;
+    color: #000;
+    font-size: 50px;
+}
+
+label{
+    color: #000;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+input{
+    color: #000;
+  
+}

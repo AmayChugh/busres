@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+
+
+li{
+    color: #fff;
+}
+
+.col{
+    display: flex;
+    
+    align-items: center; 
+    margin: auto;
+   margin-left: 188px;
+   margin-top: 10px;
+}

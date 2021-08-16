@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+
+ 
+ .ticketcard{
+    margin: auto;
+    border-style: dotted;
+    border-radius: 15px;
+    width: 66%;
+    margin-top: 100px;
+    background-color: 	rgb(196, 164, 132);
+   
+    
+} 
+
+.ticketcard h1{
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    size: 20px;
+    margin-bottom: 10px;
+    
+   
+}
+h4{
+    margin: auto;
+    text-align: center;
+    size: 15px;
+    margin-bottom: 15px; 
+}
+.ticket{
+    margin-top: 30px;
+    width: 90%;
+}
+
+button{
+    background-color: #040640;
+}
+label{
+    color: #000;
+    font-size: 18px;
+
+}
